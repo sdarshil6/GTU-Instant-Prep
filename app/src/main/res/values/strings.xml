@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">GTU Instant Prep</string>
+    <string name="et_emailLogin">Email</string>
+    <string name="et_passwordLogin">Password</string>
+    <string name="tv_forgotPassword">Forgot Password?</string>
+    <string name="bt_login">Login</string>
+    <string name="tv1">Don\'t have an account?</string>
+    <string name="tv_registerNow">Register Now</string>
+    <string name="tv_register">Register</string>
+    <string name="et_fullname_hint">Your Full Name</string>
+    <string name="et_emailRegister_hint">Email</string>
+    <string name="et_passwordRegister_hint">Password</string>
+    <string name="et_confirmPassword_hint">Confirm Password</string>
+    <string name="bt_register">Register</string>
+    <string name="tv4">By registering\, you agree to</string>
+    <string name="tv_TC">Terms &amp; Conditions</string>
+    <string name="et_email_fp_hint">Enter your email here</string>
+    <string name="bt_sendResetLink">Send Reset Link</string>
+    <string name="tv_branchName">Information Technology</string>
+    <string name="tv_semesterName">Semester 1</string>
+    <string name="tv_yearName">Year 1</string>
+    <string name="tv_subjectName">Subject 1</string>
+    <string name="tv_gtu">GTU Instant Prep</string>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="7dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/branch_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/card_background">
+
+        <!--<HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">-->
+
+        <TextView
+            android:id="@+id/tv_branchName"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/card_background"
+            android:fontFamily="@font/nunitobold"
+            android:gravity="center_vertical"
+            android:paddingStart="7dp"
+            android:text="@string/tv_branchName"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:freezesText="true"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:fadingEdge="horizontal">
+            <!--<requestFocus/>-->
+        </TextView>
+
+        <!--</HorizontalScrollView>-->
+        <!--https://stackoverflow.com/a/43777226/16326311-->
+        <!--https://stackoverflow.com/questions/12277994/ellipsize-marquee-end -->
+        <!--https://stackoverflow.com/questions/37080073/alternative-of-singleline-attribute-deprecated-textinputedittext -->
+        <!--https://stackoverflow.com/a/51533488/16326311 -->
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

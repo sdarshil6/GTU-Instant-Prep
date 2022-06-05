@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "819679147627",
+    "firebase_url": "https://gtu-instant-prep-default-rtdb.firebaseio.com",
+    "project_id": "gtu-instant-prep",
+    "storage_bucket": "gtu-instant-prep.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819679147627:android:5742547d5a219b9591e32e",
+        "android_client_info": {
+          "package_name": "com.company.gtuinstantprep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819679147627-l9hoih46kd27illig512bce21vmhgn7m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.company.gtuinstantprep",
+            "certificate_hash": "058537ac542a51fbe20d125e91249ffbedd28ac7"
+          }
+        },
+        {
+          "client_id": "819679147627-bav1k7ttfc1i08kf797lou6u9n9d4vmc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB249Iv8T-D7sbQrSP_mHGYctvgttZnM7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819679147627-bav1k7ttfc1i08kf797lou6u9n9d4vmc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
