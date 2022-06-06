@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.company.gtuinstantprep.databinding.ActivityAllYearsBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AllYearsActivity extends AppCompatActivity {
+public class AllYearsActivity extends BaseDrawerActivity {
 
     RecyclerView yearListRecyclerView;
     ArrayList<Years> list;
@@ -23,10 +24,17 @@ public class AllYearsActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = database.getReference();
 
+    ActivityAllYearsBinding activityAllYearsBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_years);
+        activityAllYearsBinding = ActivityAllYearsBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Select your exam paper");
+        setContentView(R.layout.activity_all_years); //BaseDrawer...
+        setContentView(activityAllYearsBinding.getRoot()); //AppCompat....
+
+
 
         list = new ArrayList<>();
         yearListRecyclerView = findViewById(R.id.yearListRecyclerView);

@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.company.gtuinstantprep.databinding.ActivityAllBranchesBinding;
+import com.company.gtuinstantprep.databinding.ActivityAllSemestersBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AllSemestersActivity extends AppCompatActivity {
+public class AllSemestersActivity extends BaseDrawerActivity {
 
     RecyclerView semesterListRecyclerView;
     SemesterListAdapter adapter;
@@ -23,10 +25,16 @@ public class AllSemestersActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = database.getReference();
 
+    ActivityAllSemestersBinding activityAllSemestersBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_semesters);
+        activityAllSemestersBinding = ActivityAllSemestersBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Select your Semester");
+        setContentView(R.layout.activity_all_semesters); //BaseDrawer...
+        setContentView(activityAllSemestersBinding.getRoot()); //AppCompat....
+
 
         list = new ArrayList<>();
         semesterListRecyclerView = findViewById(R.id.semesterListRecyclerView);

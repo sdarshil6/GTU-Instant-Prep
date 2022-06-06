@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.company.gtuinstantprep.databinding.ActivityAllSemestersBinding;
+import com.company.gtuinstantprep.databinding.ActivityAllSubjectsBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AllSubjectsActivity extends AppCompatActivity {
+public class AllSubjectsActivity extends BaseDrawerActivity {
 
     RecyclerView subjectListRecyclerView;
     SubjectListAdapter adapter;
@@ -23,10 +25,17 @@ public class AllSubjectsActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
 
+    ActivityAllSubjectsBinding activityAllSubjectsBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_subjects);
+        activityAllSubjectsBinding = ActivityAllSubjectsBinding.inflate(getLayoutInflater());
+        allocateActivityTitle("Select your Subject");
+        setContentView(R.layout.activity_all_subjects); //BaseDrawer...
+        setContentView(activityAllSubjectsBinding.getRoot()); //AppCompat....
+
+
         subjectListRecyclerView = findViewById(R.id.subjectListRecyclerView);
         subjectListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         subjectListRecyclerView.setHasFixedSize(true);

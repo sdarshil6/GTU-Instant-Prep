@@ -34,8 +34,10 @@ public class AllBranchesActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityAllBranchesBinding = ActivityAllBranchesBinding.inflate(getLayoutInflater());
-        setContentView(activityAllBranchesBinding.getRoot());
-        setContentView(R.layout.activity_all_branches);
+        setContentView(R.layout.activity_all_branches); //BaseDrawer...
+        setContentView(activityAllBranchesBinding.getRoot()); //AppCompat....
+        allocateActivityTitle("Select your Engineering Branch");
+
 
 
 
