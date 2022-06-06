@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.company.gtuinstantprep.databinding.ActivityAllBranchesBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AllBranchesActivity extends AppCompatActivity {
+public class AllBranchesActivity extends BaseDrawerActivity {
 
     RecyclerView branchListRecyclerView;
     ArrayList<Branches> list;
@@ -26,10 +27,14 @@ public class AllBranchesActivity extends AppCompatActivity {
     DatabaseReference databaseReference = database.getReference();
     BranchListAdapter adapter;
 
+    ActivityAllBranchesBinding activityAllBranchesBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activityAllBranchesBinding = ActivityAllBranchesBinding.inflate(getLayoutInflater());
+        setContentView(activityAllBranchesBinding.getRoot());
         setContentView(R.layout.activity_all_branches);
 
 
@@ -64,6 +69,9 @@ public class AllBranchesActivity extends AppCompatActivity {
 
         adapter = new BranchListAdapter(this, list);
         branchListRecyclerView.setAdapter(adapter);
+
+
+
 
 
 

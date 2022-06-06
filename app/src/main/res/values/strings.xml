@@ -21,4 +21,9 @@
     <string name="tv_yearName">Year 1</string>
     <string name="tv_subjectName">Subject 1</string>
     <string name="tv_gtu">GTU Instant Prep</string>
+    <string name="nav_share">Share this app</string>
+    <string name="nav_about">About</string>
+    <string name="nav_help">Help</string>
+    <string name="open">Drawer Open</string>
+    <string name="close">Drawer close</string>
 </resources>
