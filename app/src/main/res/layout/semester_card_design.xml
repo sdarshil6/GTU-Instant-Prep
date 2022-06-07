@@ -25,8 +25,8 @@
             android:fontFamily="@font/nunitobold"
             android:paddingStart="7dp"
             android:textColor="@color/white"
-            android:textSize="32sp"
-            android:layout_height="80dp"/>
+            android:textSize="28sp"
+            android:layout_height="100dp"/>
 
     </androidx.cardview.widget.CardView>
 
