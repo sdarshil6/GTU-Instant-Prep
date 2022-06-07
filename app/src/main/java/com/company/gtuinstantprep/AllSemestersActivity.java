@@ -31,9 +31,9 @@ public class AllSemestersActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityAllSemestersBinding = ActivityAllSemestersBinding.inflate(getLayoutInflater());
-        allocateActivityTitle("Select your Semester");
         setContentView(R.layout.activity_all_semesters); //BaseDrawer...
         setContentView(activityAllSemestersBinding.getRoot()); //AppCompat....
+        allocateActivityTitle(BranchListAdapter.getBranchName());
 
 
         list = new ArrayList<>();

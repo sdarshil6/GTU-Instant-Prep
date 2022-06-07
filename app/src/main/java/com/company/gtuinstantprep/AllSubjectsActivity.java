@@ -31,9 +31,9 @@ public class AllSubjectsActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityAllSubjectsBinding = ActivityAllSubjectsBinding.inflate(getLayoutInflater());
-        allocateActivityTitle("Select your Subject");
         setContentView(R.layout.activity_all_subjects); //BaseDrawer...
         setContentView(activityAllSubjectsBinding.getRoot()); //AppCompat....
+        allocateActivityTitle(SemesterListAdapter.getSemeseterName());
 
 
         subjectListRecyclerView = findViewById(R.id.subjectListRecyclerView);

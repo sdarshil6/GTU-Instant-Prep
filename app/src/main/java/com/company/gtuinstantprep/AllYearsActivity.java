@@ -30,9 +30,9 @@ public class AllYearsActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityAllYearsBinding = ActivityAllYearsBinding.inflate(getLayoutInflater());
-        allocateActivityTitle("Select your exam paper");
         setContentView(R.layout.activity_all_years); //BaseDrawer...
         setContentView(activityAllYearsBinding.getRoot()); //AppCompat....
+        allocateActivityTitle(SubjectListAdapter.getSubjectName());
 
 
 
