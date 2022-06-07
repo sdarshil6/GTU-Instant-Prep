@@ -45,8 +45,8 @@ public class BranchListAdapter extends RecyclerView.Adapter<BranchListAdapter.Br
     @Override
     public void onBindViewHolder(@NonNull BranchNameHolder holder, int position) {
         holder.tv_branchName.setText(list.get(position).getName());
-        holder.tv_branchName.setSelected(true);
-        holder.tv_branchName.setHorizontallyScrolling(true);
+        /*holder.tv_branchName.setSelected(true);
+        holder.tv_branchName.setHorizontallyScrolling(true);*/
 
 
         holder.branch_cardview.setOnClickListener(new View.OnClickListener() {
