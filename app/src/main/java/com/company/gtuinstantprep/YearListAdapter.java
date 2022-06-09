@@ -76,11 +76,11 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
 
                 final File finalFile = new File(rootPath, yearName + ".pdf");
 
-                storageReference.child(branchName).child(semesterName).child(subjectName).child(yearName).child(yearName + ".pdf").getFile(finalFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                storageReference.child(branchName).child(semesterName).child(subjectName).child(yearName + ".pdf").getFile(finalFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
 
-                        Toast.makeText(context, "Successful", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "PDF Downloaded", Toast.LENGTH_LONG).show();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
