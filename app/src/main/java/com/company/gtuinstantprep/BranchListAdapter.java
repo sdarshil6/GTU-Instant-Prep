@@ -6,6 +6,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -55,6 +56,7 @@ public class BranchListAdapter extends RecyclerView.Adapter<BranchListAdapter.Br
 
                 Intent i = new Intent(context, AllSemestersActivity.class);
                 branchName = list.get(holder.getAdapterPosition()).getName();
+                view.startAnimation(clickAnimation());
                 context.startActivity(i);
 
             }
@@ -64,6 +66,12 @@ public class BranchListAdapter extends RecyclerView.Adapter<BranchListAdapter.Br
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public AlphaAnimation clickAnimation(){
+
+        return new AlphaAnimation(1F, 0.3F);
+
     }
 
 

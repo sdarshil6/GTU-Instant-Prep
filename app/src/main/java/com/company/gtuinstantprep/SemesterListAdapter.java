@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,7 @@ public class SemesterListAdapter extends RecyclerView.Adapter<SemesterListAdapte
 
                 Intent i = new Intent(context.getApplicationContext(), AllSubjectsActivity.class);
                 semesterName = list.get(holder.getAdapterPosition()).getName();
+                view.startAnimation(clickAnimation());
                 context.startActivity(i);
 
             }
@@ -55,6 +57,12 @@ public class SemesterListAdapter extends RecyclerView.Adapter<SemesterListAdapte
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public AlphaAnimation clickAnimation(){
+
+        return new AlphaAnimation(1F, 0.3F);
+
     }
 
     public static class SemesterNameHolder extends RecyclerView.ViewHolder {

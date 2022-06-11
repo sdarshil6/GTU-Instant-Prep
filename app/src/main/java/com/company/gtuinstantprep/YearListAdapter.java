@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +61,9 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
         holder.year_cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                view.startAnimation(clickAnimation());
+                Toast.makeText(context, "Downloading...", Toast.LENGTH_SHORT).show();
                 String yearName = list.get(holder.getAdapterPosition()).getName();
                 String folderName = "GTU PREP Downloads";
 
@@ -101,6 +105,12 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public AlphaAnimation clickAnimation(){
+
+        return new AlphaAnimation(1F, 0.3F);
+
     }
 
     public static class YearNameHolder extends RecyclerView.ViewHolder {
