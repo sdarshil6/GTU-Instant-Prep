@@ -26,4 +26,13 @@
     <string name="nav_help">Help</string>
     <string name="open">Drawer Open</string>
     <string name="close">Drawer close</string>
+
+    <string name="channel1_name">Downloads</string>
+    <string name="channel1_description">PDF Downloads</string>
+    <string name="notificationTitle_channel1">YAY! PDF Downloaded</string>
+    <string name="notificationContentText_channel1">Click me to view PDF</string>
+    <string name="notificationSummaryText_channel1">Download Complete</string>
+    <string name="notificationBigText_channel1_part1">The download of </string>
+    <string name="notificationBigText_channel1_part2">has been successfully completed </string>
+    <string name="space"> </string>
 </resources>

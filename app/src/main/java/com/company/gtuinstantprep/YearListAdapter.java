@@ -1,6 +1,14 @@
 package com.company.gtuinstantprep;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -13,6 +21,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -62,6 +74,8 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
             @Override
             public void onClick(View view) {
 
+                NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
+
                 view.startAnimation(clickAnimation());
                 Toast.makeText(context, "Downloading...", Toast.LENGTH_SHORT).show();
                 String yearName = list.get(holder.getAdapterPosition()).getName();
@@ -84,7 +98,46 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
                     @Override
                     public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
 
+                        final PendingIntent contentIntent;
+
                         Toast.makeText(context, "PDF Downloaded", Toast.LENGTH_LONG).show();
+
+                        /*String downloadFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + Environment.DIRECTORY_DOWNLOADS + "/" + "GTU PREP Downloads" + "/"
+                                + yearName + ".pdf" + "/";
+                        Uri uri = Uri.parse(downloadFilePath);*/
+                        Uri uri = FileProvider.getUriForFile(context, "com.company.gtuinstantprep", finalFile);
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setDataAndType(uri,"application/pdf");
+                        /*intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);*/
+                        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ){
+                            contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+                        }
+                        else {
+                            contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                        }
+
+
+
+                        Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), R.drawable.squarebolt);
+                        String bigText = context.getString(R.string.notificationBigText_channel1_part1) + " " + yearName + " " + context.getString(R.string.notificationBigText_channel1_part2);
+                        Notification notification1 = new NotificationCompat.Builder(context, NotificationCreator.CHANNEL1_ID)
+                                .setSmallIcon(R.drawable.squarebolt)
+                                .setColor(context.getColor(R.color.black))
+                                .setContentTitle(context.getString(R.string.notificationTitle_channel1))
+                                .setContentText(context.getString(R.string.notificationContentText_channel1))
+                                //.setLargeIcon(largeIcon)
+                                .setShowWhen(true)
+                                .setStyle(new NotificationCompat.BigTextStyle().bigText(bigText).setSummaryText(context.getString(R.string.notificationSummaryText_channel1)))
+                                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                .setAutoCancel(true)
+                                .setContentIntent(contentIntent)
+                                .build();
+
+                        notificationManagerCompat.notify(1, notification1);
+
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
