@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1338BE"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:padding="7dp"
     tools:context=".SpashhScreenActivity">
+
+    <ImageView
+        android:id="@+id/iv_bolt"
+        android:layout_width="280dp"
+        android:layout_height="270dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="150dp"
+        app:srcCompat="@drawable/bolt"
+        tools:layout_editor_absoluteY="161dp" />
 
     <TextView
         android:id="@+id/tv_gtu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="376dp"
         android:fontFamily="@font/bubblegumsans_regular"
+        android:gravity="center_horizontal"
         android:text="@string/tv_gtu"
         android:textColor="@color/white"
-        android:textSize="58sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="54sp"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="440dp" />
 
-    <ImageView
-        android:id="@+id/iv_bolt"
-        android:layout_width="250dp"
-        android:layout_height="237dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="-100dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/tv_gtu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bolt" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
