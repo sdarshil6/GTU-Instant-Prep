@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/iv_graduate"
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_marginTop="56dp"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +69,7 @@
 
     <Button
         android:id="@+id/bt_login"
+        android:backgroundTint="@color/theme"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="24dp"

@@ -24,6 +24,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
+        if(getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
         et_email_fp = findViewById(R.id.et_email_fp);
         bt_sendResetLink = findViewById(R.id.bt_sendResetLink);
 
