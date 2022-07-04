@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -44,6 +45,13 @@ public class BaseDrawerActivity extends AppCompatActivity implements NavigationV
         switch (item.getItemId()) {
             case R.id.nav_about:
                 overridePendingTransition(0,0);
+                break;
+
+            case R.id.nav_logout:
+                MainActivity.auth.signOut();
+                finish();
+                startActivity(new Intent(BaseDrawerActivity.this, MainActivity.class));
+                overridePendingTransition(0, 0);
                 break;
         }
         return false;

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Button bt_login;
     TextView tv_registerNow;
 
-    FirebaseAuth auth = FirebaseAuth.getInstance();
+    public static FirebaseAuth auth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
