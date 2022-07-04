@@ -105,12 +105,15 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
                         /*String downloadFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + Environment.DIRECTORY_DOWNLOADS + "/" + "GTU PREP Downloads" + "/"
                                 + yearName + ".pdf" + "/";
                         Uri uri = Uri.parse(downloadFilePath);*/
+
                         Uri uri = FileProvider.getUriForFile(context, "com.company.gtuinstantprep", finalFile);
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setDataAndType(uri,"application/pdf");
+
                         /*intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);*/
+
                         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                         if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ){
                             contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
