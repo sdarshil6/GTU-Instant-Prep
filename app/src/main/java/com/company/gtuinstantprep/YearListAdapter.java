@@ -37,6 +37,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNameHolder> {
 
@@ -92,7 +93,30 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
 
                 }
 
-                final File finalFile = new File(rootPath, yearName + ".pdf");
+                String result = "";
+
+                // Traverse the string.
+                boolean v = true;
+                for (int i = 0; i < subjectName.length(); i++)
+                {
+                    // If it is space, set v as true.
+                    if (subjectName.charAt(i) == ' ')
+                    {
+                        v = true;
+                    }
+
+                    // Else check if v is true or not.
+                    // If true, copy character in output
+                    // string and set v as false.
+                    else if (subjectName.charAt(i) != ' ' && v == true)
+                    {
+                        result += (subjectName.charAt(i));
+                        v = false;
+                    }
+                }
+
+
+                final File finalFile = new File(rootPath, result + " " + yearName + ".pdf");
 
                 storageReference.child(branchName).child(semesterName).child(subjectName).child(yearName + ".pdf").getFile(finalFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                     @Override
