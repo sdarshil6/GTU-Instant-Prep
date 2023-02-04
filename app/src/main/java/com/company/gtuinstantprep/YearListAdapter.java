@@ -3,6 +3,8 @@ package com.company.gtuinstantprep;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,8 +84,16 @@ public class YearListAdapter extends RecyclerView.Adapter<YearListAdapter.YearNa
                 Toast.makeText(context, "Downloading...", Toast.LENGTH_SHORT).show();
                 String yearName = list.get(holder.getAdapterPosition()).getName();
                 String folderName = "GTU PREP Downloads";
+                File rootPath;
+                if(Build.VERSION.SDK_INT >= 29 ) {
 
-                File rootPath = new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)), folderName);
+                    Log.d("qwe", "greater than 29");
+                    rootPath = new File(String.valueOf(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)));
+                }
+                else {
+                    Log.d("qwe", "less than 29");
+                    rootPath = new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)), folderName);
+                }
                 if(!rootPath.exists()){
                     boolean mkdirs = rootPath.mkdirs();
                     Log.i("hello", "RESULT = " + mkdirs);
